@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="NoteGW">
+<head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NoteGW</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/paper/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">-->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class= "navbar navbar-default navbar-static-top">
+	<div class= "container">
+      <ul class= "nav navbar-nav">
+        <a href="/" class="navbar-brand"><i class="ion-images"></i> NoteGW</a>
+        <li><a href="#/login">Log in</a></li>
+        <li><a href="#/mynote">MyNoteGW</a></li>
+        <li><a href="#/allnotes">Browse All</a></li>
+        <li><a ng-click="logout()" href="">Logout</a></li>
+      </ul>
+	</div>
+</div>
+<div ng-view></div>
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-sanitize.min.js"></script>
+<script src="app.js"></script>
+<script src="controllers/login.js"></script>
+<script src="controllers/mynote.js"></script>
+<script src="controllers/mynotedetail.js"></script>
+<script src="controllers/allnotes.js"></script>
+</body>
+</html>

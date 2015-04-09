@@ -1,0 +1,17 @@
+<div><h5>Tags: </h5></div>
+<div ng-repeat="tag in tags">
+     <div >
+         <h6 style="color:#0000FF">{{tag}}
+         </h6>
+     </div>
+
+</div>
+<h6 style="color: #FF0000">
+    Created:{{createDate | date:'dd-M-yyyy H:mm'}}
+    Modified:{{updateDate | date:'dd-M-yyyy H:mm'}}
+</h6>
+<button class="sync" ng-click="sync()"> Sync this Note</button>
+<br>
+<div class="detailcontents ">
+<div ng-bind-html="notehtmlstring"></div>
+</div>
