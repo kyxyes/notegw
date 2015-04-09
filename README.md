@@ -1,5 +1,5 @@
 
-# notegw
+# NoteGW
 
 <p>Evernote based booknotes sharing platform</p>
 
