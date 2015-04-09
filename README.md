@@ -10,7 +10,7 @@
 <p>2, Lanuch Server<p>
   <p>$cd path_to_server</p>
   <p>$node server.js</p>
-  <p>lanuch localhost:8081</p>
+  <p>lanuch http://localhost:8081</p>
 
 
 
