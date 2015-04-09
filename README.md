@@ -1,6 +1,6 @@
 
 # notegw
-============
+
 <p>Evernote based booknotes sharing platform</p>
 
 <p>1, Lanuch Mongodb<p>
@@ -13,9 +13,9 @@
   <p>lanuch localhost:8081</p>
 
 
-==============
-How to use
-===============
-This platform now only support sandbox vision.
+
+#How to use
+
+This platform now only support sandbox version.
 
 Register a sandbox account if you do not have an account of Evernote sandbox account before login.
