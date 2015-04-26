@@ -10,7 +10,13 @@
     Created:{{createDate | date:'dd-M-yyyy H:mm'}}
     Modified:{{updateDate | date:'dd-M-yyyy H:mm'}}
 </h6>
-<button class="sync" ng-click="sync()"> Sync this Note</button>
+
+<div ng-show="!isSync()">
+    <button class="sync" ng-click="sync()"> Sync this Note</button>
+</div>
+<div ng-show="isSync()">
+    <button class="dissync" ng-click="dissync()"> Cancel this Note</button>
+</div>
 <br>
 <div class="detailcontents ">
 <div ng-bind-html="notehtmlstring"></div>

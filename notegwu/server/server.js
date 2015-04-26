@@ -20,7 +20,8 @@ var notesSchema = new mongoose.Schema({
     content: String,
     guid: String,
     updateDate: Date,
-    createDate: Date
+    createDate: Date,
+    isSync: Boolean
 });
 
 var Notesdb = mongoose.model('Notesdb', notesSchema);
@@ -179,33 +180,87 @@ app.get('/gettags/:guid', function(req,res){
 });
 
 //==========================================
+//isSync?/store this note
+//==========================================
+app.get('/isSync/:guid', function(req,res){
+    var guid = req.params.guid;
+    Notesdb.findOne({guid:guid},function(err, note){
+        if (err) return done(err);
+        else {
+            var isSync;
+            if(note==null)
+                isSync = false;
+            else{
+                isSync = note.isSync;
+            }
+            res.send(isSync);
+        }
+    });
+});
+
+//==========================================
+//dissync/store this note
+//==========================================
+app.post('/dissync/:guid', function(req,res){
+    console.log('hi, this is dissync');
+    var guid = req.params.guid;
+    Notesdb.findOne({guid:guid},function(err,note){
+        if(err) throw err;
+        else
+            note.isSync = false;
+        note.save(function(err){
+            if(err) throw err;
+            res.send(200);
+        });
+    })
+});
+
+
+//==========================================
 //sync/store this note
 //==========================================
 app.post('/sync/:guid', function(req,res){
     console.log('hi, this is sync');
-    var authToken = req.session.authToken;
-    var client = new Evernote.Client({token:authToken});
-    var noteStore = client.getNoteStore();
     var guid = req.params.guid;
-    noteStore.getNote(authToken, guid, true, true, true, true, function(error, note){
-       //save/sync this note to db
-        var title = note.title;
-        var content = note.content;
-        var createDate = note.created;
-        var updateDate = note.updated;
-       // var syncNote = {"title": title, "content":content, "createDate":createDate, "updateDate":updateDate}
-        var notesdb = new Notesdb({
-            "title": title,
-            "content":content,
-            "createDate":createDate,
-            "guid":guid,
-            "updateDate":updateDate
-        });
-        notesdb.save(function(err){
-            if(err) console.log("save err");
-            else console.log("save ok");
-        });
+    Notesdb.findOne({guid:guid},function(err,note){
+      if(note!=null){  //if the note going to sync exited in the database than
+          note.isSync = true; //sign this to be true
+          note.save(function(err){
+              if(err) throw err;
+              res.send(200);
+          });
+      }else{           //if the note is note in db then store it
+          var authToken = req.session.authToken;
+          var client = new Evernote.Client({token:authToken});
+          var noteStore = client.getNoteStore();
+          var guid = req.params.guid;
+          noteStore.getNote(authToken, guid, true, true, true, true, function(error, note){
+              //save/sync this note to db
+              var title = note.title;
+              var content = note.content;
+              var createDate = note.created;
+              var updateDate = note.updated;
+              var isSync = true;
+              // var syncNote = {"title": title, "content":content, "createDate":createDate, "updateDate":updateDate}
+              var notesdb = new Notesdb({
+                  "title": title,
+                  "content":content,
+                  "createDate":createDate,
+                  "guid":guid,
+                  "updateDate":updateDate,
+                  "isSync":isSync
+              });
+              notesdb.save(function(err){
+                  if(err) console.log("save err");
+                  else console.log("save ok");
+              });
+          });
+
+      }
+
     });
+
+
 });
 
 //==========================================
@@ -214,7 +269,7 @@ app.post('/sync/:guid', function(req,res){
 app.get('/allNotes', function(req, res){
     console.log('hi, this is browserAllNotes');
     //find in notegw db note
-    var query = Notesdb.find();
+    var query = Notesdb.find({isSync:true});
     //if there is query condition
     query.exec(function(err, notes){
         if(err) throw err;
