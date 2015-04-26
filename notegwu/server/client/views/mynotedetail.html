@@ -1,23 +1,30 @@
-<div><h5>Tags: </h5></div>
-<div ng-repeat="tag in tags">
-     <div >
-         <h6 style="color:#0000FF">{{tag}}
-         </h6>
-     </div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
 
-</div>
-<h6 style="color: #FF0000">
-    Created:{{createDate | date:'dd-M-yyyy H:mm'}}
-    Modified:{{updateDate | date:'dd-M-yyyy H:mm'}}
-</h6>
+            <div><h5>Tags: </h5></div>
+            <div ng-repeat="tag in tags">
+                <div >
+                    <h6 style="color:#0000FF">{{tag}}
+                    </h6>
+                </div>
 
-<div ng-show="!isSync()">
-    <button class="sync" ng-click="sync()"> Sync this Note</button>
-</div>
-<div ng-show="isSync()">
-    <button class="dissync" ng-click="dissync()"> Cancel this Note</button>
-</div>
-<br>
-<div class="detailcontents ">
-<div ng-bind-html="notehtmlstring"></div>
+            </div>
+            <h6 style="color: #FF0000">
+                Created:{{createDate | date:'dd-M-yyyy H:mm'}}
+                Modified:{{updateDate | date:'dd-M-yyyy H:mm'}}
+            </h6>
+
+            <div ng-show="!isSync()">
+                <button class="sync" ng-click="sync()"> Sync this Note</button>
+            </div>
+            <div ng-show="isSync()">
+                <button class="dissync" ng-click="dissync()"> Cancel this Note</button>
+            </div>
+            <br>
+            <div class="detailcontents ">
+                <div ng-bind-html="notehtmlstring"></div>
+            </div>
+        </div>
+    </div>
 </div>
