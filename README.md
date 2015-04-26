@@ -19,3 +19,5 @@
 This platform now only support sandbox version.
 
 Register a sandbox account if you do not have an account of Evernote sandbox account before login.
+
+Click 'Sync this note'/'Cancel this note' to share notes to others
