@@ -1,17 +1,21 @@
 <div class= "container">
-	<div class="row">
-       <div ng-repeat="note in notes">
-       	<h4>
-			<a href = "#/mynotedetail/{{note.guid}}">
-       		{{note.title}}
-       	   </a>
-		</h4>
-           <h6>
-               Created:{{note.created | date:'dd-M-yyyy H:mm'}}
-               Modified:{{note.updated | date:'dd-M-yyyy H:mm'}}
-           </h6>
-           <br>
-		 <hr>
-       </div>
-	</div>	
+	<div class="panel panel-default">
+		<div class="panel-body">
+            <!--<div class="row">-->
+                <div ng-repeat="note in notes">
+                    <h4>
+                        <a href = "#/mynotedetail/{{note.guid}}">
+							{{note.title}}
+                        </a>
+                    </h4>
+                    <h6>
+                        Created:{{note.created | date:'dd-M-yyyy H:mm'}}
+                        Modified:{{note.updated | date:'dd-M-yyyy H:mm'}}
+                    </h6>
+                    <br>
+                    <hr>
+                </div>
+            <!--</div>-->
+		</div>
+	</div>
 </div>
