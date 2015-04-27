@@ -28,4 +28,4 @@ $node server.js
 
 - Click 'Sync this note'/'Cancel this note' to share notes to others.
 
-- Click 'Browse all' to check all shared noted from other accounts.
+- Click 'Browse All' to check all shared noted from other accounts.
