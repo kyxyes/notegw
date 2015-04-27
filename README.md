@@ -22,8 +22,10 @@ $node server.js
 
 #How to use
 
-This platform now only support sandbox version.
+- This platform now only support sandbox version.
 
-Register a sandbox account if you do not have an account of Evernote sandbox account before login.
+- Register a sandbox account if you do not have an account of Evernote sandbox account before login.
 
-Click 'Sync this note'/'Cancel this note' to share notes to others
+- Click 'Sync this note'/'Cancel this note' to share notes to others.
+
+- Click 'Browse all' to check all shared noted from other accounts.
