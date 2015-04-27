@@ -1,7 +1,7 @@
 
 # NoteGW
 
->>Evernote based booknotes sharing platform
+>Evernote based booknotes sharing platform
 
 ### Lanuch Mongodb
 
