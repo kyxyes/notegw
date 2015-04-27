@@ -9,7 +9,7 @@
 $cd path_to_mongodb_bin
 $./mongod
   ```
-* for details about how to launch Mongo, please check <a href="http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes/"> here </a>.
+* for details about how to launch Mongo, please check [here](http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes).
 
 ### Lanuch Server
 ```sh 
@@ -23,9 +23,11 @@ $node server.js
 #How to use
 
 - This platform now only support sandbox version.
-
+ 
 - Register a sandbox account if you do not have an account of Evernote sandbox account before login.
+
+- Create your notes [here](https://sandbox.evernote.com/).
 
 - Click 'Sync this note'/'Cancel this note' to share notes to others.
 
-- Click 'Browse All' to check all shared noted from other accounts.
+- Click 'Browse All' to check all shared notes from other accounts.
