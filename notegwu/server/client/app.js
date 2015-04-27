@@ -13,9 +13,10 @@ angular.module('NoteGW',['ngRoute','ngMessages','ngResource','ngSanitize'])
       templateUrl: './views/mynotedetail.html',
       controller: 'mynoteDetailCtrl'
       }) //this is detail for a evernote file
-   	.when('/logout', {
-
-   	})
+   	.when('/allnotesdetail/:id', {
+       templateUrl:'views/sharednotesdetail.html',
+       controller:'sharedNotesDetailCtrl'
+   	})//browse details of public  notes
    	.when('/allnotes', {
       templateUrl: './views/allnotes.html',
       controller: 'allnotesCtrl'

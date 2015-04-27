@@ -17,7 +17,7 @@
         <li><a href="#/mynote">MyNoteGW</a></li>
         <li><a href="#/allnotes">Browse All</a></li>
         <li ng-if="!currentUser"><a href="#/login">Log in</a></li>
-        <li ng-if="!currentUser"><a href="#/login">Sign up</a></li>
+        <li ng-if="!currentUser"><a href="https://sandbox.evernote.com/Registration.action">Sign up</a></li>
           <li ng-if="currentUser">
           <li class="navbar-text" ng-bind="currentUser"></li>
           </li>
@@ -36,6 +36,7 @@
 <script src="controllers/mynote.js"></script>
 <script src="controllers/mynotedetail.js"></script>
 <script src="controllers/allnotes.js"></script>
+<script src="controllers/sharednotesdetail.js"></script>
 <script src="controllers/navbar.js"></script>
 </body>
 </html>

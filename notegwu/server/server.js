@@ -21,7 +21,8 @@ var notesSchema = new mongoose.Schema({
     guid: String,
     updateDate: Date,
     createDate: Date,
-    isSync: Boolean
+    isSync: Boolean,
+    tags:[String]
 });
 
 var Notesdb = mongoose.model('Notesdb', notesSchema);
@@ -263,19 +264,33 @@ app.post('/sync/:guid', function(req,res){
               var createDate = note.created;
               var updateDate = note.updated;
               var isSync = true;
-              // var syncNote = {"title": title, "content":content, "createDate":createDate, "updateDate":updateDate}
-              var notesdb = new Notesdb({
-                  "title": title,
-                  "content":content,
-                  "createDate":createDate,
-                  "guid":guid,
-                  "updateDate":updateDate,
-                  "isSync":isSync
+              //var notesdb = new Notesdb({
+              //    "title": title,
+              //    "content":content,
+              //    "createDate":createDate,
+              //    "guid":guid,
+              //    "updateDate":updateDate,
+              //    "isSync":isSync
+              //});
+              noteStore.getNoteTagNames(authToken, guid, function(err, tags){
+                  var notesdb = new Notesdb({
+                      "title": title,
+                      "content":content,
+                      "createDate":createDate,
+                      "guid":guid,
+                      "updateDate":updateDate,
+                      "isSync":isSync,
+                      "tags":tags
+                  });
+                  notesdb.save(function(err){
+                      if(err) console.log("save err");
+                      else console.log("save ok");
+                  });
               });
-              notesdb.save(function(err){
-                  if(err) console.log("save err");
-                  else console.log("save ok");
-              });
+              //notesdb.save(function(err){
+              //    if(err) console.log("save err");
+              //    else console.log("save ok");
+              //});
           });
 
       }
@@ -295,15 +310,21 @@ app.get('/allNotes', function(req, res){
     //if there is query condition
     query.exec(function(err, notes){
         if(err) throw err;
-        res.send(notes);
+        else res.send(notes);
     });
 });
 
 //==========================================
-//browser note in all notes
+//browser detail of shared note
 //==========================================
-app.get('/allnotes/:guid', function(req,res){
-    console.log('hi, here is allnotes '+guid);
+app.get('/getSharedNotesDetail/:guid', function(req,res){
+    var guid = req.params.guid;
+    console.log('hi, here is shared note detail'+guid);
+    var query = Notesdb.find({guid:guid});
+    query.exec(function(err,notes){
+        if(err) throw err;
+        else res.send(notes);
+    });
 });
 
 app.listen(config.serverPort, function(){
