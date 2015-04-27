@@ -9,7 +9,7 @@
 $cd path_to_mongodb_bin
 $./mongod
   ```
-* for details about how to launch Mongo, please check [here](http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes).
+* Details about how to launch Mongo, please check [here](http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes).
 
 ### Lanuch Server
 ```sh 
