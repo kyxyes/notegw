@@ -24,10 +24,12 @@ $node server.js
 
 - This platform now only support sandbox version.
  
-- Register a sandbox account if you do not have an account of Evernote sandbox account before login.
+- Register a sandbox account if you do not have an Evernote sandbox account before login.
 
 - Create your notes [here](https://sandbox.evernote.com/).
 
+- Click 'MyNoteGW' to browse your personal notes. 
+
 - Click 'Sync this note'/'Cancel this note' to share notes to others.
 
-- Click 'Browse All' to check all shared notes from other accounts.
+- Click 'Browse All' to check all shared notes from other accounts, this works under offline status without login.
