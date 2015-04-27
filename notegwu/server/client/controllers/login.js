@@ -1,17 +1,11 @@
 var myApp = angular.module('NoteGW')
-   .controller('LoginCtrl', function($scope,$http, $q, NoteGWFactory){
-    $scope.noteGWLogin = function(){
-     // NoteGWFactory.getGWLogin($http, $q);
-    //= function(){
-    	//$scope.post('/authentication');
-    	//$http.post('/authentication');
-    	// $http({
-    	// 	url:'http://localhost:8081/authentication',
-    	// 	method:"GET",
-    	// 	crossDomain: true,
-    	// 	dataType: 'jsonp'
-    	// });
-    };
+   .controller('LoginCtrl',function($scope, $http, $q, NoteGWFactory){
+
+       //$http.post('/getuser').success(function(data){
+       //    $rootScope.currentUser=data.username;
+       //});
+
+
    });
 
 
@@ -22,7 +16,7 @@ var myApp = angular.module('NoteGW')
          service.getGWLogin = function($http, $q){
            // return $resource( 'http://localhost:8081/authentication',
            //              { callback: "JSON_CALLBACK", format:'jsonp' }
-                        
+
            //   );
            var deferred = $q.defer();
            $http({

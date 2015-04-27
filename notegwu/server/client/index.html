@@ -10,14 +10,18 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class= "navbar navbar-default navbar-static-top">
+<div ng-controller="NavbarCtrl" class= "navbar navbar-default navbar-static-top">
 	<div class= "container">
       <ul class= "nav navbar-nav">
         <a href="/" class="navbar-brand"><i class="ion-images"></i> NoteGW</a>
-        <li><a href="#/login">Log in</a></li>
         <li><a href="#/mynote">MyNoteGW</a></li>
         <li><a href="#/allnotes">Browse All</a></li>
-        <li><a ng-click="logout()" href="">Logout</a></li>
+        <li ng-if="!currentUser"><a href="#/login">Log in</a></li>
+        <li ng-if="!currentUser"><a href="#/login">Sign up</a></li>
+          <li ng-if="currentUser">
+          <li class="navbar-text" ng-bind="currentUser"></li>
+          </li>
+        <li ng-if="currentUser"><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
       </ul>
 	</div>
 </div>
@@ -32,5 +36,6 @@
 <script src="controllers/mynote.js"></script>
 <script src="controllers/mynotedetail.js"></script>
 <script src="controllers/allnotes.js"></script>
+<script src="controllers/navbar.js"></script>
 </body>
 </html>

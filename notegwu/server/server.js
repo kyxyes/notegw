@@ -100,14 +100,36 @@ app.all('/authentication/callback', function(req, res){
             });
 			if (err) return res.send("Error getting accessToken", 500);
 			//  evernote.getUser(authToken, function(err, edamUser) {
-			
+
 			// 	if (err) return res.send("Error getting userInfo", 500);
-				
+
 			 req.session.authToken = authToken;
 			// 	req.session.user = edamUser;
 			 res.redirect('#/mynote');
 			// });
   });
+});
+
+//====================
+// get username
+//====================
+app.get('/getuser',function(req, res){
+    var client = new Evernote.Client({token:req.session.authToken});
+    var userStore = client.getUserStore();
+    var authToken = req.session.authToken;
+    userStore.getUser(authToken,function(err,user){
+        res.send(user);
+    });
+
+});
+
+//====================
+//logout
+//======================
+
+app.get('/logout', function(req, res, next) {
+    req.session.authToken = null;
+    res.send(200);
 });
 
 app.get('/getmynotes', function(req, res){
