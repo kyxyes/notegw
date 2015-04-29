@@ -38,5 +38,5 @@ $node server.js
 #Next functions
 >I will extend some new functions to this platform, so my plan for next stage will be:
 
-- add 'like' button to each shared notes
+- Add 'like' button to each shared notes
 - Categories according to different tags
