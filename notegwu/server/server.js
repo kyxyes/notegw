@@ -100,14 +100,9 @@ app.all('/authentication/callback', function(req, res){
             console.log("Notebooks "+notebooks[i].name);
             });
 			if (err) return res.send("Error getting accessToken", 500);
-			//  evernote.getUser(authToken, function(err, edamUser) {
-
-			// 	if (err) return res.send("Error getting userInfo", 500);
-
 			 req.session.authToken = authToken;
-			// 	req.session.user = edamUser;
 			 res.redirect('#/mynote');
-			// });
+
   });
 });
 
@@ -177,13 +172,8 @@ app.get('/getmynotedetail/:guid', function(req, res){
     var noteStore = client.getNoteStore();
     var guid = req.params.guid;
     noteStore.getNote(authToken, guid, true, true, true, true, function(error, note){
-      //console.log(notecontent.content);
-      //  console.log(notecontent.tags);
       res.send(note);
     });
-    //noteStore.getNoteContent(authToken,guid,function(error, content){
-    //    console.log(content.content);
-    //});
 });
 
 
