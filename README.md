@@ -1,23 +1,35 @@
 
 # NoteGW
 
-<p>Evernote based booknotes sharing platform</p>
+>Evernote based booknotes sharing platform
 
-<p>1, Lanuch Mongodb<p>
-   <p>$cd path_to_mongodb_bin</p>
-   <p>$./mongod</p>
-   <p>#for details about how to launch Mongo, please check <a href="http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes/"> here </a>.<p>
-<p>2, Lanuch Server<p>
-  <p>$cd path_to_server</p>
-  <p>$node server.js</p>
-  <p>lanuch http://localhost:8081</p>
+### Lanuch Mongodb
+
+ ```sh 
+$cd path_to_mongodb_bin
+$./mongod
+  ```
+* Details about how to launch Mongo, please check [here](http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes).
+
+### Lanuch Server
+```sh 
+$cd path_to_server
+$node server.js
+```
+- lanuch http://localhost:8081
 
 
 
 #How to use
 
-This platform now only support sandbox version.
+- This platform now only support sandbox version.
+ 
+- Register a sandbox account if you do not have an Evernote sandbox account before login.
 
-Register a sandbox account if you do not have an account of Evernote sandbox account before login.
+- Create your notes [here](https://sandbox.evernote.com/).
 
-Click 'Sync this note'/'Cancel this note' to share notes to others
+- Click 'MyNoteGW' to browse your personal notes. 
+
+- Click 'Sync this note'/'Cancel this note' to share notes to others.
+
+- Click 'Browse All' to check all shared notes from other accounts, this works under offline status without login.
