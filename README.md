@@ -33,9 +33,10 @@ $node server.js
 - Click 'Sync this note'/'Cancel this note' to share notes to others.
 
 - Click 'Browse All' to check all shared notes from other accounts, this works under offline status without login.
-- 
+
 
 #Next functions
 >I will extend some new functions to this platform, so my plan for next stage will be:
+
 - add 'like' button to each shared notes
 - Categories according to different tags
