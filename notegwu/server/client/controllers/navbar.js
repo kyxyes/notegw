@@ -11,7 +11,7 @@ angular.module('NoteGW')
 
       $scope.logout = function(){
         console.log('this is logout');
-        $http.get('http://localhost:8081/logout').success(function(){
+        $http.get('/logout').success(function(){
           $rootScope.currentUser = null;
           delete $rootScope;
           $location.path('/login');

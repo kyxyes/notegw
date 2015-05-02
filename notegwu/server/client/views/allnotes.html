@@ -5,8 +5,12 @@
                 <div ng-repeat="note in notes">
                     <h6>
                     <a href="#/allnotesdetail/{{note.guid}}">{{note.title}}</a>
+                        <!--this will not send a request because of #-->
+                        <!--if no # then will send a GET and back end can get this request-->
+                        <!--Link to an element with a specified id within a page -->
                     </h6>
                 </div>
+
             <!--</div>-->
         </div>
     </div>
