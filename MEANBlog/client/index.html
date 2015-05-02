@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="MEANBlog">
+<head>
+    <title>My Blog</title>
+</head>
+
+<div>
+    <div class="container">
+    <ul>
+        <li ng-if="username">Welcome{{username}}</li>
+        <li ng-if="!username">You are not login</li>
+    </ul>
+    </div>
+</div>
+<div ng-view></div>
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-sanitize.min.js"></script><!--https://docs.angularjs.org/api/ngSanitize/service/$sanitize-->
+<script src="app.js"></script>
+<script src="controllers/displayPostCtrl.js"></script> <!--can not in front of angular.js-->
+</html>

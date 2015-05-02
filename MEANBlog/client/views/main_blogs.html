@@ -1,0 +1,18 @@
+<div class="contain">
+<h1>My Blog</h1>
+
+    <div ng-repeat="post in myposts">
+        <h2>
+            <a href="#/blogDetails/{{post.permalink}}">{{post.title}}</a>
+        </h2>
+        Posted {{post.date}} <i>By {{post.author}}</i>
+        Comments:
+        <hr>
+        <div ng-bind-html="post.body"></div>
+        <em>Filed Under:</em>
+        <i ng-repeat="tag in post.tags">
+            {{tag}}
+        </i>
+    </div>
+
+</div>
